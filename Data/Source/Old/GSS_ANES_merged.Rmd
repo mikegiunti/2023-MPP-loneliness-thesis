@@ -1,0 +1,61 @@
+---
+title: "Thesis Code"
+author: "Michele Giunti"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, root.dir = "~/Rdata")
+library(tidyr)
+library(dplyr)
+library(readr)
+library(caret)
+library(RColorBrewer)
+library(ggthemes)
+library(scales)
+library(labeling)
+library(extrafont)
+library(extrafontdb)
+library(RColorBrewer)
+library(labelled)
+library(naniar)
+library(mice)
+setwd("~/Rdata")
+```
+
+```{r inspecting the data}
+library(haven)
+library (stringr)
+gss <- read_dta("gss2020panel_r1a.dta")
+anesgss <- read_dta("anes_timeseries_2020_gss_stata_20220408.dta")
+
+names(anesgss)[1:736] <- tolower(names(anesgss)[1:736])
+
+anesgss <- anesgss %>%
+  select(where(~any(. != -3))) %>%
+  select(-c(v202458, v202459, v202460, v202461, v202462, v202463, v202464, v202465, v202466, v202467))       # Removing all restricted data
+
+gssanes <- left_join(gss, anesgss, by = "yearid")
+
+gss2020 <- gssanes %>%                                              # This is a version of my data that has been confirmed to have all interviewees
+  filter(panstat == 1)
+
+gss_labels <- look_for(gssanes)                                     # Table with description of all variables
+
+anes_values <- val_labels(anesgss, prefixed = TRUE)
+gss_values <- val_labels(gssanes, prefixed = TRUE)                  # List with all variable labels
+
+misssum <- miss_var_summary(gssanes) %>%
+  filter(pct_miss != 100)                                           # Missing value summary of my variables
+
+gss_labels_16_20 <- left_join(gss_labels, misssum, by = "variable") %>%
+  filter(!is.na(n_miss)) %>%
+  filter(!str_detect(variable, "_1b$"))                             # List of variables for 2016-2020
+
+gss_labels_18_20<- left_join(gss_labels, misssum, by = "variable") %>%
+  filter(!is.na(n_miss)) %>%
+  filter(!str_detect(variable, "_1a$"))                             # List of variables for 2018-2020
+
+
+```

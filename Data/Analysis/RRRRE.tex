@@ -1,0 +1,43 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\textbf{Relative Risk Ratios for Random Effects (Main Regressors)} \strut \label{tab5}}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                              &\multicolumn{2}{c}{Offline}            &\multicolumn{2}{c}{Online}             \\
+                              &     Happy         &   Unhappy         &     Happy         &   Unhappy         \\
+\midrule
+\textbf{Loneliness}           &                   &                   &                   &                   \\
+\hspace{0.25cm} Low Loneliness&     4.924\sym{***}&     1.474         &     4.939\sym{***}&     1.574         \\
+                              &    (1.89)         &    (0.48)         &    (1.96)         &    (0.46)         \\
+\hspace{0.25cm} High Loneliness&     0.771         &     1.989         &     0.767         &     2.063         \\
+                              &    (0.92)         &    (1.13)         &    (0.91)         &    (1.11)         \\
+\textbf{Online Communication} &                   &                   &                   &                   \\
+\hspace{0.25cm} High Online Presence&     0.563         &     0.641         &     0.560         &     0.585         \\
+                              &    (0.23)         &    (0.24)         &    (0.22)         &    (0.22)         \\
+\textbf{Offline Engagement}   &                   &                   &                   &                   \\
+\hspace{0.25cm} Participated  &     1.021         &     1.373         &                   &                   \\
+                              &    (0.41)         &    (0.59)         &                   &                   \\
+\textbf{Online Engagement}    &                   &                   &                   &                   \\
+\hspace{0.25cm} Participated  &                   &                   &     1.065         &     2.083\sym{*}  \\
+                              &                   &                   &    (0.52)         &    (0.69)         \\
+\textbf{Civic Identification} &                   &                   &                   &                   \\
+\hspace{0.25cm} Low Identification&     0.631         &     4.525\sym{***}&     0.628         &     4.225\sym{***}\\
+                              &    (0.36)         &    (1.94)         &    (0.35)         &    (1.66)         \\
+\hspace{0.25cm} Low-Medium Identification&     0.806         &     1.882         &     0.806         &     1.844         \\
+                              &    (0.40)         &    (1.00)         &    (0.39)         &    (0.92)         \\
+\hspace{0.25cm} High Identification&     1.037         &     1.488         &     1.025         &     1.374         \\
+                              &    (0.45)         &    (0.70)         &    (0.43)         &    (0.63)         \\
+\textbf{Marriage and Cohabitation}&                   &                   &                   &                   \\
+\hspace{0.25cm} Not Married, Cohabitation&     1.665         &     0.625         &     1.652         &     0.588         \\
+                              &    (1.02)         &    (0.45)         &    (1.01)         &    (0.41)         \\
+\hspace{0.25cm} Not Married, No Cohabitation&     0.288\sym{*}  &     3.087\sym{**} &     0.286\sym{*}  &     2.860\sym{*}  \\
+                              &    (0.16)         &    (1.26)         &    (0.16)         &    (1.12)         \\
+\midrule
+Observations                  &       680         &                   &       680         &                   \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Exponentiated coefficients; Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \textbf{Note:} the cohabitation variable and any other statistically significant regressor was added to the table.}\\
+\multicolumn{5}{l}{\footnotesize Significance levels reflect the results of the non-transformed regression.}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
