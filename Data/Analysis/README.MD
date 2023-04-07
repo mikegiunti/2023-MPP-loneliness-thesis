@@ -13,3 +13,5 @@ For latex, the packages used were:
 7. `threeparttable`
 8. `lscape`
 9. `pdflscape`
+
+The tables used in the final paper are noted with the **Main Commit** message. The main do file is *03_analysis_v2_alternate.do*
