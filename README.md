@@ -1,4 +1,5 @@
-# Screens and Faces: A Fixed Effects Model for Loneliness Wellness Effects Across Face-to-Face Interactions and Online Communities
+# SCREENS AND FACES: USING SOCIAL COHESION AND ONLINE COMMUNICATION AS PROXIES FOR LONELINESS EFFECTS ON HAPPINESS
+
 
 ## Thesis repository
 
