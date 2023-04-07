@@ -1,0 +1,29 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\textbf{Relative Risk Ratios (Base Happiness)} \strut \label{tab4}}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                              &\multicolumn{2}{c}{(1)}              &\multicolumn{2}{c}{(2)}              \\
+                              &\multicolumn{2}{c}{\underline{Online Communication}}&\multicolumn{2}{c}{\underline{Social Cohesion}}\\
+                              &     Happy        &   Unhappy        &     Happy        &   Unhappy        \\
+\midrule
+\textbf{Interaction Effects:} &                  &                  &                  &                  \\
+\hspace{0.25cm} High Online Communication&      .265        &      1.21        &                  &                  \\
+\hspace{0.5cm} \emph{w/Low Loneliness}&      .374        &      .528        &                  &                  \\
+\hspace{0.5cm} \emph{w/High Loneliness}&  6.97e+08\sym{**}&      74.6\sym{*} &                  &                  \\
+\hspace{0.25cm} High Social Cohesion&                  &                  &      .213        &      .807        \\
+\hspace{0.5cm} \emph{w/Low Loneliness}&                  &                  &      .809        &     .0245\sym{*} \\
+\hspace{0.5cm} \emph{w/High Loneliness}&                  &                  &      6.51        &   .000215\sym{**}\\
+\midrule \textbf{Main Loneliness Effect:}&                  &                  &                  &                  \\
+\hspace{0.25cm} Low Loneliness&       1.6        &      1.56        &      1.58        &      8.01\sym{^+}\\
+\hspace{0.25cm} High Loneliness&  6.70e-10\sym{**}&      .095        &      .195        &       755\sym{**}\\
+\hspace{0.25cm} Online Engagement&      .439        &     .0912\sym{*} &       .46        &     .0613\sym{**}\\
+\hspace{0.25cm} Offline Engagement&      1.79        &      8.73\sym{^+}&      1.35        &      6.74\sym{*} \\
+\midrule
+Observations                  &       276        &                  &       276        &                  \\
+Individuals                   &       112        &                  &       112        &                  \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Exponentiated coefficients}\\
+\multicolumn{5}{l}{\footnotesize \sym{^+} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\)}\\
+\end{tabular}
+\end{table}

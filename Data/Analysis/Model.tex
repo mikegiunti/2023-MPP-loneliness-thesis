@@ -1,0 +1,59 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\textbf{Multinomial Logistic Models Connectivity Vs. Social Cohesion Proxy} \strut \label{tab3}}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                              &\multicolumn{4}{c}{w/Controls}                         &\multicolumn{2}{c}{Base}   \\\cmidrule(lr){2-5}\cmidrule(lr){6-7}
+                              &\multicolumn{2}{c}{\underline{Online Communication}}&\multicolumn{2}{c}{\underline{Social Cohesion}}&\multicolumn{2}{c}{\underline{Social Cohesion}}\\
+                              &Happy        &Unhappy        &Happy        &Unhappy        &Happy        &Unhappy        \\
+\midrule
+\textbf{Interaction Effects:} &             &             &             &             &             &             \\
+\hspace{0.25cm} High Online Communication&-1.329        &0.188        &             &             &             &             \\
+                              &(0.96)        &(0.71)        &             &             &             &             \\
+\hspace{0.5cm} \emph{w/Low Loneliness}&-0.983        &-0.638        &             &             &             &             \\
+                              &(1.20)        &(1.04)        &             &             &             &             \\
+\hspace{0.5cm} \emph{w/High Loneliness}&20.363\sym{**}&4.312\sym{*} &             &             &             &             \\
+                              &(2.27)        &(1.87)        &             &             &             &             \\
+\hspace{0.25cm} High Social Cohesion&             &             &-1.545        &-0.214        &-1.668\sym{^+}&-1.361        \\
+                              &             &             &(0.98)        &(1.71)        &(0.93)        &(0.98)        \\
+\hspace{0.5cm} \emph{w/Low Loneliness}&             &             &-0.212        &-3.708\sym{*} &0.822        &-0.751        \\
+                              &             &             &(1.15)        &(1.73)        &(0.92)        &(0.90)        \\
+\hspace{0.5cm} \emph{w/High Loneliness}&             &             &1.874        &-8.446\sym{**}&3.345        &-0.963        \\
+                              &             &             &(3.16)        &(2.69)        &(2.38)        &(2.03)        \\
+\midrule \textbf{Main Loneliness Effect:}&             &             &             &             &             &             \\
+\hspace{0.25cm} Low Loneliness&0.467        &0.445        &0.455        &2.081\sym{^+}&-0.211        &0.987        \\
+                              &(0.53)        &(1.14)        &(0.85)        &(1.13)        &(0.85)        &(0.84)        \\
+\hspace{0.25cm} High Loneliness&-21.124\sym{**}&-2.354        &-1.634        &6.626\sym{**}&-1.271        &2.910\sym{^+}\\
+                              &(1.27)        &(1.41)        &(2.04)        &(1.68)        &(2.19)        &(1.56)        \\
+\hspace{0.25cm} Online Engagement&-0.824        &-2.395\sym{*} &-0.776        &-2.793\sym{**}&-1.126        &-0.612        \\
+                              &(1.09)        &(1.10)        &(0.90)        &(0.96)        &(0.91)        &(0.74)        \\
+\hspace{0.25cm} Offline Engagement&0.583        &2.167\sym{^+}&0.301        &1.909\sym{*} &0.957        &-0.146        \\
+                              &(1.81)        &(1.22)        &(1.23)        &(0.87)        &(1.05)        &(0.75)        \\
+\textbf{Controls:}            &             &             &             &             &             &             \\
+\hspace{0.25cm} Volunteering  &1.202        &0.815\sym{^+}&1.250        &1.340\sym{^+}&             &             \\
+                              &(0.94)        &(0.41)        &(0.81)        &(0.77)        &             &             \\
+\hspace{0.25cm} Marriage Status&0.347        &3.125\sym{*} &-0.524        &2.953\sym{**}&             &             \\
+                              &(0.70)        &(1.17)        &(0.98)        &(0.79)        &             &             \\
+\hspace{0.25cm} Online Workspace&-10.143\sym{**}&0.499        &-6.737\sym{*} &0.866        &             &             \\
+                              &(3.26)        &(1.21)        &(2.57)        &(1.16)        &             &             \\
+\hspace{0.25cm} Religious Activity&0.162        &-0.629\sym{**}&0.335        &-0.751\sym{*} &             &             \\
+                              &(0.16)        &(0.15)        &(0.25)        &(0.31)        &             &             \\
+Time Effects                  &  Yes        &  Yes        &  Yes        &  Yes        &   No        &   No        \\
+\midrule
+Observations                  &  276        &             &  276        &             &  276        &             \\
+Individuals                   &  112        &             &  112        &             &  112        &             \\
+F-Statistic                   &20.93        &             &12.61        &             & 0.91        &             \\
+p-value                       &0.000        &             &0.001        &             &0.572        &             \\
+\hline \textbf{Hausman Test Results}&             &             &             &             &             &             \\
+Hausman \chi^2                &31.829        &             &30.697        &             &             &             \\
+Hausman p-value               &0.045        &             &0.059        &             &             &             \\
+\hline \textbf{Time Effect Test}&             &             &             &             &             &             \\
+\texorpdfstring{F-value\textsubscript{time}}&27.821        &             &11.348        &             &             &             \\
+\texorpdfstring{p-value\textsubscript{time}}&0.000        &             &0.000        &             &             &             \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{7}{l}{\footnotesize \textbf{Note:} the sample population is composed of observations that did not drop when both full models were run.}\\
+\multicolumn{7}{l}{\footnotesize As such, the same individuals are used across years, and the full effect of the interaction terms can be compared.}\\
+\multicolumn{7}{l}{\footnotesize \sym{^+} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\)}\\
+\end{tabular}
+\end{table}

@@ -1,0 +1,41 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\textbf{Relative Risk Ratios for Random Effects (Main Regressors)} \strut \label{tab5}}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                              &\multicolumn{2}{c}{Offline}            &\multicolumn{2}{c}{Online}             \\
+                              &     Happy         &   Unhappy         &     Happy         &   Unhappy         \\
+\midrule
+\textbf{Loneliness}           &                   &                   &                   &                   \\
+\hspace{0.25cm} Low Loneliness&     4.895\sym{***}&     1.476         &     4.915\sym{***}&     1.573         \\
+                              &    (1.89)         &    (0.48)         &    (1.96)         &    (0.46)         \\
+\hspace{0.25cm} High Loneliness&     0.795         &     1.901         &     0.792         &     1.980         \\
+                              &    (0.95)         &    (1.05)         &    (0.95)         &    (1.04)         \\
+\textbf{Online Communication} &                   &                   &                   &                   \\
+\hspace{0.25cm} High Online Presence&     0.552         &     0.668         &     0.548         &     0.609         \\
+                              &    (0.22)         &    (0.25)         &    (0.22)         &    (0.22)         \\
+\textbf{Offline Engagement}   &                   &                   &                   &                   \\
+\hspace{0.25cm} Participated  &     1.030         &     1.371         &                   &                   \\
+                              &    (0.41)         &    (0.60)         &                   &                   \\
+\textbf{Online Engagement}    &                   &                   &                   &                   \\
+\hspace{0.25cm} Participated  &                   &                   &     1.074         &     2.073\sym{*}  \\
+                              &                   &                   &    (0.53)         &    (0.69)         \\
+\textbf{Civic Identification} &                   &                   &                   &                   \\
+\hspace{0.25cm} Low Identification&     0.696         &     3.402\sym{**} &     0.692         &     3.208\sym{***}\\
+                              &    (0.36)         &    (1.21)         &    (0.35)         &    (1.05)         \\
+\hspace{0.25cm} High Identification&     1.127         &     1.132         &     1.114         &     1.054         \\
+                              &    (0.41)         &    (0.44)         &    (0.40)         &    (0.40)         \\
+\textbf{Marriage and Cohabitation}&                   &                   &                   &                   \\
+\hspace{0.25cm} Not Married, Cohabitation&     1.688         &     0.638         &     1.673         &     0.602         \\
+                              &    (1.06)         &    (0.46)         &    (1.04)         &    (0.42)         \\
+\hspace{0.25cm} Not Married, No Cohabitation&     0.286\sym{*}  &     3.104\sym{**} &     0.284\sym{*}  &     2.875\sym{*}  \\
+                              &    (0.16)         &    (1.28)         &    (0.16)         &    (1.15)         \\
+\midrule
+Observations                  &       680         &                   &       680         &                   \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Exponentiated coefficients; Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \textbf{Note:} the cohabitation variable and any other statistically significant regressor was added to the table.}\\
+\multicolumn{5}{l}{\footnotesize Significance levels reflect the results of the non-transformed regression.}\\
+\multicolumn{5}{l}{\footnotesize \sym{^+} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
