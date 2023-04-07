@@ -7,8 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(dplyr)
-library(tidyr)
+library(tidyverse)
 library(ggplot2)
 library(labelled)
 library(mice)
@@ -64,6 +63,8 @@ write_dta(GSS_ANES_04, file.path("C:/Users/miche/OneDrive/Documenti/USA/School/S
 ```
 
 ```{r missing naniar, echo=FALSE}
+windowsFonts(Times=windowsFont("Times New Roman"))
+
 GSS_ANES_05 <- unlabelled(GSS_ANES_04)
 
 GSS_ANES_05 %>% 
@@ -76,14 +77,106 @@ library(naniar)
 
 miss_case_summary(GSS_ANES_04)
 miss_case_table(GSS_ANES_04)
-vis_miss(GSS_ANES_04,cluster = TRUE) + theme(axis.text.x = element_text(angle=80))
-gg_miss_var(GSS_ANES_04)
 
+png("C:/Users/miche/OneDrive/Documenti/USA/School/SPRING 2023/Thesis Workshop V2/Thesis_code/Data/Analysis/Tables/images/missingcluster.png", units = "in", width = 7, height = 5, res = 300)
+cluster <- GSS_ANES_04 %>% 
+  select(!c(1:5,15:18)) %>%
+  vis_miss(cluster = TRUE) + 
+  coord_flip() +
+  ggthemes::theme_fivethirtyeight() +
+  theme(text=element_text(family="Times", size=12))
+cluster
+dev.off()
+
+png("C:/Users/miche/OneDrive/Documenti/USA/School/SPRING 2023/Thesis Workshop V2/Thesis_code/Data/Analysis/Tables/images/missline.png", units = "in", width = 7, height = 5, res = 300)
+missline <- GSS_ANES_04 %>%
+  select(!c(1:5,15:18)) %>%
+  gg_miss_var() +
+  ggthemes::theme_fivethirtyeight() +
+  theme(text=element_text(family="Times", size=12))
+missline
+dev.off()
 
 ```
 
+```{r graphs, echo=FALSE}
+library(corrplot)
+library(lsr)
+library(rcompanion)
+library(corrr)
+
+mixed_assoc = function(df, cor_method="spearman", adjust_cramersv_bias=TRUE){
+    df_comb = expand.grid(names(df), names(df),  stringsAsFactors = F) %>% set_names("X1", "X2")
+
+    is_nominal = function(x) class(x) %in% c("factor", "character")
+    # https://community.rstudio.com/t/why-is-purr-is-numeric-deprecated/3559
+    # https://github.com/r-lib/rlang/issues/781
+    is_numeric <- function(x) { is.integer(x) || is_double(x)}
+
+    f = function(xName,yName) {
+        x =  pull(df, xName)
+        y =  pull(df, yName)
+
+        result = if(is_nominal(x) && is_nominal(y)){
+            # use bias corrected cramersV as described in https://rdrr.io/cran/rcompanion/man/cramerV.html
+            cv = cramerV(as.character(x), as.character(y), bias.correct = adjust_cramersv_bias)
+            data.frame(xName, yName, assoc=cv, type="cramersV")
+
+        }else if(is_numeric(x) && is_numeric(y)){
+            correlation = cor(x, y, method=cor_method, use="complete.obs")
+            data.frame(xName, yName, assoc=correlation, type="correlation")
+
+        }else if(is_numeric(x) && is_nominal(y)){
+            # from https://stats.stackexchange.com/questions/119835/correlation-between-a-nominal-iv-and-a-continuous-dv-variable/124618#124618
+            r_squared = summary(lm(x ~ y))$r.squared
+            data.frame(xName, yName, assoc=sqrt(r_squared), type="anova")
+
+        }else if(is_nominal(x) && is_numeric(y)){
+            r_squared = summary(lm(y ~x))$r.squared
+            data.frame(xName, yName, assoc=sqrt(r_squared), type="anova")
+
+        }else {
+            warning(paste("unmatched column type combination: ", class(x), class(y)))
+        }
+
+        # finally add complete obs number and ratio to table
+        result %>% mutate(complete_obs_pairs=sum(!is.na(x) & !is.na(y)), complete_obs_ratio=complete_obs_pairs/length(x)) %>% rename(x=xName, y=yName)
+    }
+
+    # apply function to each variable combination
+    map2_df(df_comb$X1, df_comb$X2, f)
+}
+
+mix <- mixed_assoc(GSS_ANES_05)
+
+library(rstatix)
+
+mix_mat <- mix %>%
+  select(1:3) %>%
+  filter(y == "happy" | y == "lonely" | y == "cohesion" | y == "intctnct" | y == "partpartonline" | y == "partpartoffline"| y == "partvol"| y == "marcohab"| y == "Occ10STEM"| y == "attend4") %>%
+  filter(x == "happy" | x == "lonely" | x == "cohesion" | x == "intctnct" | x == "partpartonline" | x == "partpartoffline"| x == "partvol"| x == "marcohab"| x == "Occ10STEM"| x == "attend4") %>%
+  rename(var1 = x, var2 = y, cor = assoc) %>%
+  cor_spread() %>%
+  column_to_rownames() %>%
+  as.matrix()
 
 
+col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+
+png("C:/Users/miche/OneDrive/Documenti/USA/School/SPRING 2023/Thesis Workshop V2/Thesis_code/Data/Analysis/Tables/images/correlation.png", units = "in", width = 7, height = 5, res = 300)
+corrrr <- corrplot(mix_mat, method="color", col=col(200),  
+         type="upper", order="hclust", 
+         addCoef.col = "black", # Add coefficient of correlation
+         tl.col="black", tl.srt=45, #Text label color and rotation
+         # hide correlation coefficient on the principal diagonal
+         diag=FALSE 
+         ) +
+  ggthemes::theme_fivethirtyeight() +
+  theme(text=element_text(family="Times", size=12))
+corrrr
+dev.off()
+
+```
 
 ```{r mice missing, echo=FALSE}
 library(VIM)
@@ -100,6 +193,7 @@ mice_plot <- aggr(gmiss, col=c('navyblue','yellow'),
                     numbers=TRUE, sortVars=TRUE,
                     labels=names(gmiss), cex.axis=.7,
                     gap=3, ylab=c("Missing data","Pattern"))
+  
 
 ```
 

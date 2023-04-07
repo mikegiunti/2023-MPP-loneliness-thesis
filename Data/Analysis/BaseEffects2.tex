@@ -1,0 +1,30 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\textbf{Multinomial Logistic Models: Alternative Relationships} \strut \label{tabA2}}
+\begin{tabular}{l*{8}{c}}
+\toprule
+                              &\multicolumn{4}{c}{Base Effects}                       &\multicolumn{4}{c}{Indicator Effects}                  \\\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+                              &\multicolumn{2}{c}{\underline{Base}}&\multicolumn{2}{c}{\underline{Year Effect}}&\multicolumn{2}{c}{\underline{Connectivity}}&\multicolumn{2}{c}{\underline{Social Cohesion}}\\
+                              &Happy        &Unhappy        &Happy        &Unhappy        &Happy        &Unhappy        &Happy        &Unhappy        \\
+\midrule
+\midrule \textbf{Main Loneliness Effect:}&             &             &             &             &             &             &             &             \\
+\hspace{0.25cm} Low Loneliness&0.192        &0.122        &0.807        &0.027        &0.811        &0.148        &0.913        &-0.037        \\
+                              &(0.59)        &(0.45)        &(0.53)        &(0.43)        &(0.53)        &(0.45)        &(0.63)        &(0.44)        \\
+\hspace{0.25cm} High Loneliness&-0.334        &0.380        &1.720        &-0.351        &1.739        &-0.427        &2.081        &-0.249        \\
+                              &(0.83)        &(0.97)        &(1.41)        &(1.17)        &(1.58)        &(1.12)        &(1.52)        &(1.09)        \\
+\textbf{Suggested Indicators:}&             &             &             &             &             &             &             &             \\
+\hspace{0.25cm} High Online Communication&             &             &             &             &0.127        &-0.483        &             &             \\
+                              &             &             &             &             &(0.65)        &(0.78)        &             &             \\
+\hspace{0.25cm} High Social Cohesion&             &             &             &             &             &             &1.706        &-0.413        \\
+                              &             &             &             &             &             &             &(1.15)        &(0.66)        \\
+Time Effects                  &   No        &   No        &  Yes        &  Yes        &  Yes        &  Yes        &  Yes        &  Yes        \\
+\midrule
+Observations                  &  266        &             &  266        &             &  266        &             &  266        &             \\
+Individuals                   &  126        &             &  126        &             &  126        &             &  126        &             \\
+F-Statistic                   & 0.29        &             & 5.91        &             & 4.48        &             & 3.40        &             \\
+p-value                       &0.883        &             &0.001        &             &0.005        &             &0.018        &             \\
+\bottomrule
+\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \sym{^+} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\)}\\
+\end{tabular}
+\end{table}

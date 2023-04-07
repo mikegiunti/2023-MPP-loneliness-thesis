@@ -1,0 +1,36 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{\textbf{Relative Risk Ratios for Fixed Effects} \strut \label{tab4}}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                              &\multicolumn{2}{c}{Offline}            &\multicolumn{2}{c}{Online}             \\
+                              &     Happy         &   Unhappy         &     Happy         &   Unhappy         \\
+\midrule
+\textbf{Loneliness}           &                   &                   &                   &                   \\
+\hspace{0.25cm} Low Loneliness&     1.596         &     4.051         &     1.451         &     2.401         \\
+                              &    (1.39)         &    (3.82)         &    (1.14)         &    (2.89)         \\
+\hspace{0.25cm} High Loneliness&     0.216         &     4.948\sym{^+} &     0.160         &     2.997         \\
+                              &    (0.30)         &    (3.93)         &    (0.21)         &    (2.68)         \\
+\textbf{Online Communication} &                   &                   &                   &                   \\
+\hspace{0.25cm} High Online Presence&     0.122\sym{**} &     0.728         &     0.146\sym{**} &     1.266         \\
+                              &    (0.08)         &    (0.35)         &    (0.09)         &    (0.76)         \\
+\textbf{Offline Engagement}   &                   &                   &                   &                   \\
+\hspace{0.25cm} Participated  &     0.811         &     1.528         &                   &                   \\
+                              &    (1.22)         &    (1.42)         &                   &                   \\
+\textbf{Online Engagement}    &                   &                   &                   &                   \\
+\hspace{0.25cm} Participated  &                   &                   &     0.896         &     0.160\sym{*}  \\
+                              &                   &                   &    (0.93)         &    (0.14)         \\
+\textbf{Civic Identification} &                   &                   &                   &                   \\
+\hspace{0.25cm} Low Identification&     4.057         &    37.267\sym{**} &     3.767         &    43.835\sym{**} \\
+                              &    (4.11)         &   (48.20)         &    (3.52)         &   (53.07)         \\
+\hspace{0.25cm} High Identification&     0.144\sym{^+} &     0.262         &     0.162\sym{*}  &     0.377         \\
+                              &    (0.14)         &    (0.38)         &    (0.14)         &    (0.66)         \\
+\midrule
+Observations                  &       276         &                   &       276         &                   \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Exponentiated coefficients; Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \textbf{Note:} only statistically significant variables were included in this table.}\\
+\multicolumn{5}{l}{\footnotesize Significance levels reflect the results of the non-transformed regression.}\\
+\multicolumn{5}{l}{\footnotesize \sym{^+} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
